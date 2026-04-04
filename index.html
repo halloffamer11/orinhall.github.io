@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orin Hall</title>
-    <meta name="description" content="Systems engineer building AI-native workflows. Writing about agent architecture, context engineering, and spec-driven development.">
+    <meta name="description" content="Systems engineer at Amazon Robotics. Writing about data provenance, context engineering, and agent architecture.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -32,9 +32,10 @@
         }
 
         .tagline {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #8b949e;
             margin-bottom: 2.5rem;
+            line-height: 1.5;
         }
 
         section {
@@ -105,6 +106,25 @@
             font-size: 0.95rem;
         }
 
+        nav {
+            margin-bottom: 2.5rem;
+        }
+
+        nav a {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-right: 1.5rem;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        nav a.active {
+            color: #e6edf3;
+        }
+
         @media (max-width: 480px) {
             body { padding: 2rem 1rem; }
             h1 { font-size: 1.6rem; }
@@ -114,31 +134,46 @@
 <body>
     <div class="container">
         <h1>Orin Hall</h1>
-        <p class="tagline">Systems engineer building AI-native workflows</p>
+        <p class="tagline">Systems engineer. Sr. Technical Business Development Leader, Supply Chain at Amazon Robotics.</p>
+
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="/writing">Writing</a>
+        </nav>
+
+        <section class="about">
+            <h2>About</h2>
+            <p>I'm a systems engineer with 15 years across aerospace, defense, and robotics — GE Aerospace, MORSE Corp, and Amazon. My work has spanned gas turbine development, safety-critical systems for the US Army, and scaling hardware products for warehouse robotics.</p>
+            <p>Since mid-2025 I've been building with generative AI — first as personal projects, then as part of my daily work. I'm in the top 0.5% of GenAI users at Amazon and use it across both my professional and personal work. I'm not a software engineer. I'm a practitioner who builds solutions for everyday problems and learns by doing.</p>
+            <p>My current focus is on making agent output measurably useful — data provenance, context curation, trust boundaries, and the evaluation and feedback loops needed to know whether a workflow is actually better than what it replaced.</p>
+        </section>
+
+        <section>
+            <h2>Background</h2>
+            <ul class="post-list">
+                <li>
+                    <span class="post-desc"><strong>Amazon Robotics</strong> (2024–present) — Sr. Technical Business Development Leader, Supply Chain. Previously Sr. TPM. Led $100M+ supplier selection, improved camera production from 56% to 100% sustained first-pass yield.</span>
+                </li>
+                <li>
+                    <span class="post-desc"><strong>MORSE Corp</strong> (2019–2024) — Chief Engineer. Led SLAAD, a safety-critical wearable for US Army paratroopers that uses SVM sensor fusion to classify parachute failures in milliseconds. Congressional program of record. Managed 20+ people.</span>
+                </li>
+                <li>
+                    <span class="post-desc"><strong>GE Aerospace</strong> (2011–2019) — Lead Engineer on the $517M T901 engine program. Two patents. Pioneered additive manufacturing for flight hardware.</span>
+                </li>
+                <li>
+                    <span class="post-desc"><strong>Education</strong> — MS Aerospace Engineering, Georgia Tech (4.0). BS Mechanical Engineering, Boston University.</span>
+                </li>
+            </ul>
+        </section>
 
         <section>
             <h2>Writing</h2>
             <ul class="post-list">
                 <li>
-                    <span class="post-desc">Coming soon — writing about agent architecture, context engineering, and spec-driven agentic development.</span>
+                    <a href="/writing">Topics I'm exploring</a>
+                    <p class="post-desc">Data provenance, trust decay, context curation, and notes from applying GenAI to traditional engineering work.</p>
                 </li>
             </ul>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-            <ul class="post-list">
-                <li>
-                    <a href="https://github.com/halloffamer11/orinhall.github.io">orinhall.dev</a>
-                    <p class="post-desc">This site</p>
-                </li>
-            </ul>
-        </section>
-
-        <section class="about">
-            <h2>About</h2>
-            <p>I'm a systems engineer at Amazon Robotics exploring how AI agents change the way we work. I created USDAD, a spec-driven methodology for agentic development, and built an AI-native business development environment from scratch.</p>
-            <p>Previously: Chief Engineer at MORSE Corp (defense systems), Lead Engineer at GE Aerospace. MS Aerospace Engineering, Georgia Tech.</p>
         </section>
 
         <section>

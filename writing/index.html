@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing — Orin Hall</title>
+    <meta name="description" content="Notes on data provenance, trust decay, context curation, and agent workflows.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+        }
+
+        .container {
+            max-width: 640px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #f0f6fc;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: #8b949e;
+            margin-bottom: 2.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8b949e;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #21262d;
+        }
+
+        .post {
+            margin-bottom: 2rem;
+        }
+
+        .post h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 0.35rem;
+        }
+
+        .post p {
+            font-size: 0.95rem;
+            color: #c9d1d9;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            margin-bottom: 2.5rem;
+        }
+
+        nav a {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-right: 1.5rem;
+        }
+
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        nav a.active {
+            color: #e6edf3;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 2rem 1rem; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Writing</h1>
+        <p class="subtitle">Topics I'm working through. Some have drafts, most are still forming.</p>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/writing" class="active">Writing</a>
+        </nav>
+
+        <section>
+            <h2>Data Provenance &amp; Trust</h2>
+
+            <div class="post">
+                <h3>A provenance model for AI-augmented workflows</h3>
+                <p>When agents produce output from a mix of curated documents, live email, and prior conversation, it helps to know where things came from. I've been working with a four-dimensional model — structure, trust, durability, and lineage — that tracks how information moves through a system and how much weight it should carry. The practical implementation uses extended attributes for trust tagging and a JSON manifest for tracking transformations.</p>
+            </div>
+
+            <div class="post">
+                <h3>Trust decay</h3>
+                <p>A signed design review holds its authority for years. A meeting summary starts losing value within days. I'm exploring what happens when you assign decay functions to different data types — emails, meetings, status updates — and use those to filter what gets loaded into agent context. The question is whether this is worth the complexity, or whether simple recency cutoffs do the job well enough.</p>
+            </div>
+
+            <div class="post">
+                <h3>Mirroring enterprise documents with lineage</h3>
+                <p>Most enterprise knowledge lives in SharePoint, Outlook, and Slack. None of it is directly usable by agents. I've been building a workflow that converts these sources into markdown while preserving where each piece came from and how it was transformed — verbatim extraction versus AI synthesis versus human authorship. The mirror is useful, but it's never the source of truth, and keeping that distinction clear turns out to matter.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Agent Workflows</h2>
+
+            <div class="post">
+                <h3>The flash project pattern</h3>
+                <p>A signal arrives — an email, a Slack message, a request from a meeting — and creates a need for a short-lived deliverable. The workflow is: scaffold a project, assemble relevant context, pull live data from email and calendar, inject human judgment, synthesize. Seven steps. The bottleneck is context assembly, which is still mostly manual. I'm documenting where automation helps and where human selection of "what's relevant" remains necessary.</p>
+            </div>
+
+            <div class="post">
+                <h3>A proposal-based governance loop</h3>
+                <p>Improvement ideas surface naturally during agent-assisted work. Rather than applying changes immediately, they go into a structured queue — capture, review, implement, audit. Over three weeks this produced 55 proposals, 39 of which were implemented. The system doesn't modify itself autonomously. Changes accumulate, a human reviews at threshold, and the process evolves deliberately. Notes on why this works better than either full automation or ad-hoc fixes.</p>
+            </div>
+
+            <div class="post">
+                <h3>Spec-driven agentic development</h3>
+                <p>In mid-2025, I started writing specifications before letting agents build anything — defining roles, validation gates, and shared context structures upfront. The first full application was a fantasy football draft tool: a React and TypeScript app with a VBD engine, Monte Carlo risk analysis, and a unified state store — 38 tasks, each with human-in-the-loop validation, tracked through a three-layer context system (global steering, project context, execution ledger). The approach evolved across about two dozen projects after that. Documenting what the methodology looks like in practice, where it helps, and where it adds overhead that isn't justified.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
