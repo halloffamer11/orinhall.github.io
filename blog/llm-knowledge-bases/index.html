@@ -161,25 +161,25 @@
 
             <p>I've been building something similar. The terminal-as-input, markdown-viewer-as-output pattern is one I've converged on independently, and I think he's right that there's a product-shaped gap here. No good tool exists for someone who works primarily with information rather than code, and wants to direct agents across that information with the same power a developer has in a code editor.</p>
 
-            <p>But I think there's a more interesting question underneath the workflow: what kind of data is this wiki, and who is it actually for?</p>
+            <p>The more interesting question, though: what kind of data is this wiki, and who is it for?</p>
 
             <h2>Three kinds of context</h2>
 
-            <p>In my own work with AI agents, I've found it useful to distinguish between three types of information context, each with different trust levels, lifespans, and purposes.</p>
+            <p>In my own work with agents, I distinguish three types of information context. Each has different trust levels, lifespans, and purposes.</p>
 
             <p>The first is <strong>durable reference</strong> — highly curated, human-verified information that serves as a source of truth. Steering documents, design specifications, validated architecture decisions. This is information you'd stake a business decision on. It's maintained deliberately, updated rarely, and carries high trust because a human put it there and stands behind it.</p>
 
             <p>The second is <strong>task context</strong> — transient, focused information assembled for a specific piece of work. A customer question arrives, you pull the relevant reference material, add the immediate context, and synthesize a response. When the task is done, most of this context doesn't need to persist. It referenced the durable layer but didn't become part of it.</p>
 
-            <p>What Karpathy is describing is something different from both of these. His wiki is a <strong>research context</strong> — a mid-durability compilation of information on a specific topic, assembled from diverse primary sources, organized and summarized by the model. It sits between the permanence of reference data and the ephemerality of task context. It's not something you'd treat as a source of truth for a business decision, but it's more than a throwaway.</p>
+            <p>What Karpathy is describing is something different from both of these. His wiki is a <strong>research context</strong> — a mid-durability compilation of information on a specific topic, assembled from diverse primary sources, organized and summarized by the model. It sits between the permanence of reference data and the ephemerality of task context. You wouldn't stake a business decision on it, but you also wouldn't throw it out after one use.</p>
 
-            <p>And here's the distinction I think matters most: this research context is primarily built for the agent to consume, not the human.</p>
+            <p>The distinction worth drawing out is who actually consumes it. The research context is built for the agent to read more than for the human.</p>
 
             <h2>Context built for agents</h2>
 
             <p>Karpathy's wiki is 100 articles and 400,000 words. No one is reading that cover to cover. The human interacts with it through queries — asking the model to research answers, generate slides, produce visualizations. The wiki is an intermediate layer that makes the model's responses more grounded and specific than its training data alone would allow.</p>
 
-            <p>This is useful. But it's worth being precise about what's happening. The model is curating information, organizing it, summarizing it, and then querying its own curation to produce answers. The human trusts the output to the extent that the compilation was faithful to the sources and the sources themselves were reliable. There's no human verification step on the wiki content itself — it's agent-authored from end to end.</p>
+            <p>This is useful, but worth being precise about. The model is curating information, organizing it, summarizing it, and then querying its own curation to produce answers. The human trusts the output to the extent that the compilation was faithful to the sources and the sources themselves were reliable. There's no human verification step on the wiki content itself — it's agent-authored from end to end.</p>
 
             <p>For personal research — exploring a topic, building intuition, finding connections — this is probably fine. The risk profile is low. You're using the output to inform your own thinking, and you'll notice when something doesn't track.</p>
 
@@ -187,15 +187,15 @@
 
             <h2>The expert agent pattern</h2>
 
-            <p>Where I think this gets genuinely interesting — and where I plan to test it — is when the research context stops being a standalone wiki and becomes the knowledge base for a specialized agent.</p>
+            <p>Where this gets interesting — and where I plan to test it — is when the research context stops being a standalone wiki and becomes the knowledge base for a specialized agent.</p>
 
             <p>Here's the concrete version. In my role, I deal with supply chain problems that require synthesizing constraints across multiple domains — lead times, supplier capabilities, warehouse capacity, transportation networks. There's no single source of truth for this. The knowledge is distributed across documents, tribal expertise, and shifting data.</p>
 
-            <p>Imagine building a research context specifically for this domain — curating primary sources, industry data, internal documentation — and then packaging that as a specialized agent. Not a general model with a system prompt that says "act as a logistics expert," but an agent with an actual curated knowledge base that it can reference, query, and draw from when I ask it to review a proposal or stress-test an assumption.</p>
+            <p>Imagine building a research context specifically for this domain — curating primary sources, industry data, internal documentation — and then packaging that as a specialized agent. I don't mean a general model with a system prompt that says "act as a logistics expert." I mean an agent with an actual curated knowledge base it can reference when I ask it to review a proposal or stress-test an assumption.</p>
 
             <p>The difference matters. "Act as an expert" gives you the model's training distribution. A curated knowledge base gives you something closer to a colleague who has done the reading — someone who can cite specifics, point to sources, and ground their analysis in data you've selected and, at least partially, vetted.</p>
 
-            <p>This is the pattern I think has real potential: a team of specialized agents, each with a domain-specific research context, that I can engage for different aspects of a problem. Not autonomous agents making decisions, but informed reviewers providing input while I stay in the driver's seat.</p>
+            <p>This is the pattern I think has real potential: a team of specialized agents, each with a domain-specific research context, that I can engage for different aspects of a problem. Informed reviewers providing input, with me still making the calls.</p>
 
             <h2>The self-improving loop</h2>
 
@@ -203,13 +203,13 @@
 
             <p>For the expert agent pattern, this maps to a self-improving cycle: the agent bootstraps from initial sources, refines its knowledge through interactions during actual work, identifies gaps when it can't answer questions well, and periodically pulls in new material. Over time, the knowledge base becomes increasingly tailored to your specific application rather than the topic in general.</p>
 
-            <p>There's a natural continuum here. At one end, you have a general model with a curated context window. In the middle, specialized agents with maintained knowledge bases. At the far end, the fine-tuning path — training model weights on the curated data so the knowledge is internalized rather than retrieved. Karpathy gestures at this when he mentions synthetic data generation and fine-tuning.</p>
+            <p>There's a continuum here. At one end, a general model with a curated context window. In the middle, specialized agents with maintained knowledge bases. At the far end, the fine-tuning path — training model weights on the curated data so the knowledge is internalized rather than retrieved. Karpathy gestures at this when he mentions synthetic data generation and fine-tuning.</p>
 
-            <p>Where along that continuum you should operate depends on the precision required, the stability of the domain, and — most importantly — whether you can measure the value of the output. A radiologist AI trained on specific imaging data has clear metrics: accuracy, false positive rate, diagnostic concordance. A supply chain advisor grounded in curated logistics research has fuzzier value. Better decisions, faster analysis, fewer blind spots — but harder to quantify.</p>
+            <p>Where you operate on that continuum depends on the precision required, the stability of the domain, and whether you can measure the value of the output. A radiologist AI trained on specific imaging data has clear metrics: accuracy, false positive rate, diagnostic concordance. A supply chain advisor grounded in curated logistics research has fuzzier value — better decisions and fewer blind spots, but no single number to point at.</p>
 
             <h2>The value question</h2>
 
-            <p>This is where I come back to a principle that shapes most of my work with agents: output is not value. A 400,000-word wiki produced by an LLM is impressive in volume, but volume isn't the metric. The question is whether the decisions made with that knowledge base are measurably better than decisions made without it.</p>
+            <p>The principle I keep coming back to: output is not value. A 400,000-word wiki produced by an LLM is impressive in volume, but volume isn't the metric. The question is whether the decisions made with that knowledge base are measurably better than decisions made without it.</p>
 
             <p>Karpathy's framing is exploratory — he's using this for personal research, and the value is in the exploration itself. That's legitimate. But if you're building expert agents for professional use, you need a test. Define what "better" means before you build the knowledge base, establish a baseline, and measure the delta after. If you build first and evaluate later, you end up measuring what you built rather than what was needed.</p>
 
@@ -221,9 +221,9 @@
 
             <p>Karpathy ends his post by noting that "there is room here for an incredible new product instead of a hacky collection of scripts." I agree, and I'd frame the gap more broadly.</p>
 
-            <p>What's missing isn't just a better wiki tool. It's a development environment for people who work with information rather than code. Software engineers have IDEs, version control, testing frameworks, linters, deployment pipelines — an entire ecosystem built around the assumption that the primary artifact is software. Knowledge workers directing AI agents have none of this. We're cobbling together terminal sessions, markdown viewers, and ad-hoc scripts because nothing was designed for this workflow from the ground up.</p>
+            <p>What's missing is a development environment for people who work with information rather than code. Software engineers have IDEs, version control, testing frameworks, linters, deployment pipelines — an entire ecosystem built around the assumption that the primary artifact is software. Knowledge workers directing AI agents have none of this. We're cobbling together terminal sessions, markdown viewers, and ad-hoc scripts because nothing was designed for the workflow.</p>
 
-            <p>The fact that someone like Karpathy is using essentially the same improvised stack I've converged on — terminal input, Obsidian output, directory structures as architecture, LLMs as the authoring layer — tells me this isn't a personal quirk. It's a pattern emerging independently among people who are actually doing this work, and it reveals the shape of what's missing.</p>
+            <p>The fact that someone like Karpathy converged on the same improvised stack I did — terminal input, Obsidian output, directory structures as architecture, LLMs as the authoring layer — suggests this is a pattern, not a personal quirk. It reveals the shape of what's missing.</p>
 
             <p>I'll follow up with results once I've tested the expert agent approach against a real baseline.</p>
 
