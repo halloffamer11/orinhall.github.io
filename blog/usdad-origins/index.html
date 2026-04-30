@@ -117,6 +117,41 @@
             font-style: italic;
         }
 
+        .post-body .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+            margin: 1.75rem 0;
+        }
+
+        .post-body .gallery figure {
+            margin: 0;
+        }
+
+        .post-body .gallery img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .post-body .gallery figcaption {
+            font-size: 0.78rem;
+            line-height: 1.35;
+            margin-top: 0.4rem;
+        }
+
+        @media (max-width: 480px) {
+            .post-body .gallery {
+                grid-template-columns: 1fr;
+            }
+            .post-body .gallery img {
+                height: 220px;
+            }
+        }
+
         .post-body ul {
             margin-bottom: 1.25rem;
             padding-left: 1.5rem;
@@ -156,20 +191,20 @@
 
             <p>I had felt the itch before. The first time was in December of 2013 when I saw a picture of a DIY guitar while home with family for Christmas. An idea was planted in my head that would become an obsession that led to building my first guitar, then an amplifier, and several years of posing as a cover band around Salem and Boston with friends. It was the perfect confluence of my love of building, learning new skills, and music. While the band is no more, everything I learned has continued to grow and I continue to build out my electronics and woodworking skills whenever time allows, or whenever something around the house needs repair.</p>
 
-            <figure>
-                <img src="./images/building.jpg" alt="Mahogany SG-style guitar body in progress on a workbench, with pegboard of tools behind">
-                <figcaption>The first build, mahogany SG body coming together at the workbench.</figcaption>
-            </figure>
-
-            <figure>
-                <img src="./images/amp.jpg" alt="Hand-wired tube amp turret board with point-to-point colorful wiring">
-                <figcaption>Then the amp, hand-wired turret board, point-to-point.</figcaption>
-            </figure>
-
-            <figure>
-                <img src="./images/playing.jpg" alt="Finished blue electric guitar leaning on the homebuilt amplifier in a band rehearsal room">
-                <figcaption>And the band room, same guitar finished, the homebuilt amp behind it.</figcaption>
-            </figure>
+            <div class="gallery">
+                <figure>
+                    <img src="./images/building.jpg" alt="Mahogany SG-style guitar body in progress on a workbench, with pegboard of tools behind">
+                    <figcaption>The first build, at the workbench.</figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/amp.jpg" alt="Hand-wired tube amp turret board with point-to-point colorful wiring">
+                    <figcaption>Then the amp, point-to-point.</figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/playing.jpg" alt="Finished blue electric guitar leaning on the homebuilt amplifier in a band rehearsal room">
+                    <figcaption>And the band room.</figcaption>
+                </figure>
+            </div>
 
             <p>In June of 2025, I sat down with my wife and asked for time to go heads down on a project. The same itch I felt over 10 years earlier struck again. I'd been reading about agentic AI for months. I'd been a heavy ChatGPT user since early 2025. But I was immediately struck when I test drove Claude Code for the first time that weekend. Inspiration met opportunity as I was approaching the annual fantasy football draft season in less than 2 months. What's strange is I almost never watch football, but I truly enjoy the gamification and data analysis of the whole process. There's something about pulling together the latest data and analytics to outmatch your friends. For the past several years I was a regular in two draft leagues. One was a normal snake draft, the other an auction. The auction is a much more complex and open-ended problem, and a perfect sandbox for testing out this new tool.</p>
 
@@ -181,7 +216,7 @@
 
             <p>The first weekend, I tried to dive straight into the application. I wanted to start with the deterministic data and calculations so I could baseline what I built to tools I was already familiar with. I opened Cursor, picked Claude 3.5 Sonnet, and started prompting.</p>
 
-            <p>It went badly.</p>
+            <p>It went poorly.</p>
 
             <p>The output it generated, in isolation, was reasonable. The problem was that I couldn't keep multiple conversations aligned with each other. I'd brainstorm an architecture in one chat, ask for an implementation in another, and an hour later I'd realize the implementation had drifted from the architecture. I'd ask for a refactor and the model would invent assumptions that contradicted decisions I'd made in a different window. I'd lose track of what I'd already decided versus what I was still considering.</p>
 
